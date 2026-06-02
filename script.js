@@ -2,21 +2,21 @@ const slidesData = [
   {
     title: "AI Project Demo",
     description: "Experience innovative AI-powered applications that automate tasks, improve efficiency, and deliver intelligent solutions for businesses and individuals.",
-    image: "./AI.jpeg",
+    image: "AI.jpeg", 
     button: "View Project",
     link: "#"
   },
   {
     title: "Web Development Services",
     description: "We create responsive, fast, and user-friendly websites using modern technologies to help businesses establish a strong online presence.",
-    image: "./web.avif",
+    image: "web.avif", 
     button: "Learn More",
     link: "#"
   },
   {
     title: "UI/UX Design",
     description: "Designing visually appealing and intuitive user experiences that enhance customer engagement and improve overall usability.",
-    image: "./UI.webp",
+    image: "UI.webp", 
     button: "Explore Design",
     link: "#"
   }
@@ -48,7 +48,7 @@ const slides = document.querySelectorAll(".slide");
 const dots = document.querySelectorAll(".dot");
 
 let current = 0;
-let slideInterval; // Auto-play timer track karne ke liye
+let slideInterval;
 
 function showSlide(index) {
   slides.forEach(slide => slide.classList.remove("active"));
@@ -70,7 +70,6 @@ function prevSlide() {
   showSlide(current);
 }
 
-// Auto-play shuru karne aur reset karne ke functions
 function startTimer() {
   slideInterval = setInterval(nextSlide, 5000);
 }
@@ -80,7 +79,6 @@ function resetTimer() {
   startTimer();
 }
 
-// Event Listeners (with timer reset)
 document.querySelector(".next").addEventListener("click", () => {
   nextSlide();
   resetTimer();
@@ -109,5 +107,4 @@ document.addEventListener("keydown", (e) => {
   }
 });
 
-// Slider load hote hi auto-play start karein
 startTimer();
