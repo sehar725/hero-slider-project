@@ -1,131 +1,154 @@
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:Arial, sans-serif;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
 }
 
-.hero-slider{
-    position:relative;
-    width:100%;
-    height:100vh;
-    overflow:hidden;
+.hero-slider {
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  position: relative;
+  background-color: #111; /* Fallback background color */
 }
 
-.slide{
-    position:absolute;
-    width:100%;
-    height:100%;
-    opacity:0;
-    transition:opacity 1s ease;
+.slider-container {
+  width: 100%;
+  height: 100%;
+  position: relative;
 }
 
-.slide.active{
-    opacity:1;
+.slides {
+  width: 100%;
+  height: 100%;
 }
 
-.slide img{
-    width:100%;
-    height:100%;
-    object-fit:cover;
+.slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  z-index: 1;
+  transition: opacity 0.8s ease-in-out;
 }
 
-.overlay{
-    position:absolute;
-    inset:0;
-    background:rgba(0,0,0,0.45);
+.slide.active {
+  opacity: 1;
+  z-index: 5;
 }
 
-.content{
-    position:absolute;
-    top:50%;
-    left:10%;
-    transform:translateY(-50%);
-    color:white;
-    max-width:550px;
+.slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
-.content h1{
-    font-size:3rem;
-    margin-bottom:15px;
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.4);
+  z-index: 6;
 }
 
-.content p{
-    font-size:1.2rem;
-    margin-bottom:20px;
-    line-height:1.6;
+.content {
+  position: absolute;
+  top: 50%;
+  left: 10%;
+  transform: translateY(-50%);
+  color: white;
+  max-width: 500px;
+  background: rgba(0, 0, 0, 0.6);
+  padding: 30px;
+  border-radius: 10px;
+  z-index: 10; /* Text ko button aur image ke upar lane ke liye */
 }
 
-.btn{
-    text-decoration:none;
-    background:#0d6efd;
-    color:white;
-    padding:12px 24px;
-    border-radius:6px;
-    display:inline-block;
-    transition:.3s;
+.content h1 {
+  font-size: 3rem;
+  margin-bottom: 15px;
 }
 
-.btn:hover{
-    transform:scale(1.05);
+.content p {
+  font-size: 1.1rem;
+  margin-bottom: 25px;
+  line-height: 1.5;
 }
 
-.nav-btn{
-    position:absolute;
-    top:50%;
-    transform:translateY(-50%);
-    border:none;
-    background:rgba(0,0,0,0.5);
-    color:white;
-    padding:15px;
-    cursor:pointer;
-    font-size:24px;
-    z-index:10;
+.btn {
+  display: inline-block;
+  padding: 12px 25px;
+  background: #007bff;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  font-weight: bold;
+  transition: 0.3s;
 }
 
-.prev{
-    left:15px;
+.btn:hover {
+  background: #0056b3;
+  transform: scale(1.05);
 }
 
-.next{
-    right:15px;
+.prev, .next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0, 0, 0, 0.6);
+  color: white;
+  border: none;
+  padding: 15px 20px;
+  cursor: pointer;
+  font-size: 24px;
+  z-index: 20;
+  border-radius: 5px;
+  transition: 0.3s;
 }
 
-.dots{
-    position:absolute;
-    bottom:25px;
-    width:100%;
-    text-align:center;
-    z-index:10;
+.prev:hover, .next:hover {
+  background: #007bff;
 }
 
-.dot{
-    width:12px;
-    height:12px;
-    border-radius:50%;
-    background:white;
-    display:inline-block;
-    margin:0 5px;
-    cursor:pointer;
-    opacity:.5;
+.prev { left: 20px; }
+.next { right: 20px; }
+
+.dots {
+  position: absolute;
+  bottom: 30px;
+  width: 100%;
+  text-align: center;
+  z-index: 20;
 }
 
-.dot.active{
-    opacity:1;
+.dot {
+  height: 12px;
+  width: 12px;
+  margin: 0 5px;
+  background: rgba(255, 255, 255, 0.5);
+  border-radius: 50%;
+  display: inline-block;
+  cursor: pointer;
+  transition: 0.3s;
 }
 
-@media(max-width:768px){
+.dot.active {
+  background: white;
+  transform: scale(1.2);
+}
 
-    .content{
-        left:5%;
-        right:5%;
-    }
-
-    .content h1{
-        font-size:2rem;
-    }
-
-    .content p{
-        font-size:1rem;
-    }
+@media (max-width: 768px) {
+  .content {
+    left: 5%;
+    right: 5%;
+    top: 60%;
+  }
+  .content h1 { font-size: 2rem; }
+  .content p { font-size: 1rem; }
+  .hero-slider { height: 70vh; }
 }
