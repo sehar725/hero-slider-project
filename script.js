@@ -2,27 +2,26 @@ const slidesData = [
   {
     title: "AI Project Demo",
     description: "Experience innovative AI-powered applications that automate tasks, improve efficiency, and deliver intelligent solutions for businesses and individuals.",
-    image: "images/AI.jpeg",
+    image: "AI.jpeg",
     button: "View Project",
     link: "#"
   },
   {
     title: "Web Development Services",
     description: "We create responsive, fast, and user-friendly websites using modern technologies to help businesses establish a strong online presence.",
-    image: "images/web.avif",
+    image: "web.avif",
     button: "Learn More",
     link: "#"
   },
   {
     title: "UI/UX Design",
     description: "Designing visually appealing and intuitive user experiences that enhance customer engagement and improve overall usability.",
-    image: "images/UI.webp",
+    image: "UI.webp",
     button: "Explore Design",
     link: "#"
   }
 ];
 
-// HTML mein aapki ID "slides" hai, isliye yahan "slides" likha hai
 const sliderContainer = document.getElementById("slides"); 
 const dotsContainer = document.getElementById("dots");
 
